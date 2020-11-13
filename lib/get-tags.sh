@@ -28,8 +28,8 @@ function readAdditionalTags() {
 
 function getTags() {
   BK_LABEL=${BUILDKITE_LABEL}
-  BK_AGENT_QUEUE=${BUILDKITE_AGENT_META_DATA_QUEUE}
-
+  BK_LABEL="$(echo "$BUILDKITE_LABEL" | tr -d '[[:punct:]]' | tr ' ' '_' | tr '[A-Z]' '[a-z]')"
+  
   IS_MASTER=false
 
   if [ "$BUILDKITE_BRANCH" == "master" ]; then
