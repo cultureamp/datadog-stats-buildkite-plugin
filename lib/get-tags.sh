@@ -27,8 +27,8 @@ function readAdditionalTags() {
 }
 
 function getTags() {
-  BK_LABEL=${BUILDKITE_LABEL}
   BK_LABEL="$(echo "$BUILDKITE_LABEL" | tr -d '[[:punct:]]' | tr ' ' '_' | tr '[A-Z]' '[a-z]')"
+  BK_AGENT_QUEUE=${BUILDKITE_AGENT_META_DATA_QUEUE}
   
   IS_MASTER=false
 
