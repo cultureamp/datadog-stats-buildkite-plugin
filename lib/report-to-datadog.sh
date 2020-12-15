@@ -4,7 +4,7 @@
 # permissions to do host networking. If you have disabled user namespace remapping and don't 
 # have `nc` installed this will still silently fail
 NC=nc
-if ! which -s "$NC" ; then 
+if ! which "$NC" ; then 
   NC="docker run -i --rm --network=host subfuzion/netcat"
 fi
 
